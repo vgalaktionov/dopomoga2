@@ -1,11 +1,12 @@
 asgiref==3.5.0
+Babel==2.9.1
 black==22.3.0
 click==8.1.2
 Django==4.0.4
-django-address==0.2.6
 django-countries==7.3.2
-django-db-file-storage==0.5.5
+-e git+https://github.com/vgalaktionov/db_file_storage.git@64f359bae845ddb4804ddc0166c2b6c04d6ae3ef#egg=django_db_file_storage
 django-localflavor==3.1
+django-money==2.1.1
 django-phonenumber-field==6.1.0
 flake8==4.0.1
 mccabe==0.6.1
@@ -14,9 +15,11 @@ pathspec==0.9.0
 phonenumberslite==8.12.46
 platformdirs==2.5.1
 psycopg2==2.9.3
+py-moneyed==1.2
 pycodestyle==2.8.0
 pyflakes==2.4.0
 python-stdnum==1.17
+pytz==2022.1
 pyuca==1.2
 sqlparse==0.4.2
 tomli==2.0.1

@@ -1,0 +1,16 @@
+.nav-button {
+    text-align: center !important;
+    flex-grow: 0;
+}
+
+.logo {
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 150%;
+}
+
+.footer-text {
+    color: gray;
+    text-align: center;
+}

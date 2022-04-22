@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("files/", include("db_file_storage.urls")),
-]
+from dopomoga2.views import IndexView
+
+urlpatterns = [path("admin/", admin.site.urls), path("files/", include("db_file_storage.urls")), path("", IndexView.as_view())]

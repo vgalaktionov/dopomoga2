@@ -121,13 +121,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
 
 USE_I18N = True
 
 USE_TZ = True
+
+LOCALE_PATHS = [BASE_DIR / "dopomoga2" / "locale"]
+LANGUAGES = (
+    ("en", _("English")),
+    ("uk", _("Ukrainian")),
+)
+LANGUAGE_CODE = "uk"
 
 
 # Static files (CSS, JavaScript, Images)
@@ -141,6 +147,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
 }
 AWS_S3_ENDPOINT_URL = "https://ams3.digitaloceanspaces.com"
+AWS_S3_CUSTOM_DOMAIN = "cdn.galaktic.tech"
 AWS_S3_REGION_NAME = "ams3"
 AWS_STORAGE_BUCKET_NAME = "dopomoga"
 AWS_QUERYSTRING_AUTH = False
@@ -152,10 +159,3 @@ AWS_LOCATION = "static"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-LOCALE_PATHS = [BASE_DIR / "dopomoga2" / "locale"]
-LANGUAGES = (
-    ("en", _("English")),
-    ("uk", _("Ukrainian")),
-)
-LANGUAGE_CODE = "uk"

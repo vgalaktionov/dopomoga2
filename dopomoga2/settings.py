@@ -140,7 +140,6 @@ STATICFILES_STORAGE = "storages.backends.s3boto3.S3StaticStorage"
 AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
 }
-AWS_LOCATION = "dopomoga"
 AWS_STORAGE_BUCKET_NAME = "dopomoga"
 
 # Default primary key field type

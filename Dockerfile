@@ -1,5 +1,7 @@
 FROM python:3.9-slim
 
+RUN apt-get update && apt-get install -y gettext libgettextpo-dev
+
 WORKDIR /dopomoga
 
 COPY requirements.txt ./

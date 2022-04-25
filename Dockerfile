@@ -8,4 +8,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD gunicorn dopomoga2.wsgi
+ENV PYTHONUNBUFFERED=1
+
+CMD gunicorn --worker-tmp-dir /dev/shm dopomoga2.wsgi

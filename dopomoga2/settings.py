@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 from django.utils.translation import gettext_lazy as _
@@ -22,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-a)89t$n(u0sr0u6l$1&azi)iyw-j!%9wfza@ni7z3af(9pi0@m"
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-a)89t$n(u0sr0u6l$1&azi)iyw-j!%9wfza@ni7z3af(9pi0@m")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,12 +42,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # 3rd party
-    "db_file_storage",
+    "storages",
     "phonenumber_field",
     "django_countries",
     "localflavor",
     "djmoney",
-    "convenient_formsets",
+    "django_jsonform",
     # project
     "candidates",
     "vacancies",
@@ -88,8 +89,12 @@ WSGI_APPLICATION = "dopomoga2.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": os.environ.get("POSTGRES_HOST", "postgres"),
+        "PORT": 5432,
+        "USER": os.environ.get("POSTGRES_USER", "postgres"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD", "hunter2"),
+        "NAME": os.environ.get("POSTGRES_DB", "dopomoga"),
     }
 }
 
@@ -129,6 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = [BASE_DIR / "dopomoga2" / "static"]
 
 # Default primary key field type
@@ -136,7 +142,7 @@ STATICFILES_DIRS = [BASE_DIR / "dopomoga2" / "static"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-DEFAULT_FILE_STORAGE = "db_file_storage.storage.DatabaseFileStorage"
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 LOCALE_PATHS = [BASE_DIR / "dopomoga2" / "locale"]
 LANGUAGES = (

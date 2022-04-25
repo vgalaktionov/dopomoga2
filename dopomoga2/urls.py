@@ -21,7 +21,6 @@ from dopomoga2.views import IndexView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("files/", include("db_file_storage.urls")),
     path("registration-form", RegistrationView.as_view()),
     path("", IndexView.as_view()),
 ]

@@ -54,14 +54,15 @@ class Candidate(models.Model):
     has_own_car = models.BooleanField(default=False)
     work_experience = models.TextField()
     work_willing_to_consider = models.TextField()
-    cv = models.FileField(upload_to="candidates.CVFile/bytes/filename/mimetype", blank=True, null=True)
+    diplomas_certificates = models.TextField(blank=True, null=True)
+    cv = models.FileField(blank=True, null=True)
 
     date_of_birth = models.DateField(verbose_name=_("Date of birth"))
     place_of_birth = models.CharField(max_length=100)
     country_of_birth = CountryField()
 
     bsn = models.CharField(max_length=9, validators=[RegexValidator(r"^\d*$")])
-    bsn_proof_file = models.FileField(upload_to="candidates.BSNProofFile/bytes/filename/mimetype", blank=True, null=True)
+    bsn_proof_file = models.FileField(blank=True, null=True)
     marital_status = models.CharField(max_length=15, choices=MaritalStatus.choices, default=MaritalStatus.UNMARRIED, verbose_name=_("Marital status"))
 
     iban = IBANField()
@@ -69,14 +70,8 @@ class Candidate(models.Model):
 
     passport_number = models.CharField(max_length=20, blank=False, null=False)
     passport_valid_to = models.DateField(blank=False, null=False)
-    passport_file = models.FileField(upload_to="candidates.PassportFile/bytes/filename/mimetype", blank=True, null=True)
+    passport_file = models.FileField(blank=True, null=True)
     nationality = CountryField()
-
-
-class DiplomaCertificate(models.Model):
-    candidate = models.ForeignKey("candidates.Candidate", blank=False, null=False, on_delete=models.CASCADE)
-    description = models.CharField(max_length=300)
-    diploma_certificate_file = models.FileField(upload_to="candidates.DiplomaCertificateFile/bytes/filename/mimetype", blank=True, null=True)
 
 
 class Language(models.Model):
@@ -90,27 +85,3 @@ class Language(models.Model):
     candidate = models.ForeignKey("candidates.Candidate", blank=False, null=False, on_delete=models.CASCADE)
     language = models.CharField(max_length=7, choices=LANGUAGES)
     level = models.CharField(max_length=20, choices=LanguageLevel.choices)
-
-
-class PassportFile(models.Model):
-    bytes = models.TextField()
-    filename = models.CharField(max_length=255)
-    mimetype = models.CharField(max_length=50)
-
-
-class BSNProofFile(models.Model):
-    bytes = models.TextField()
-    filename = models.CharField(max_length=255)
-    mimetype = models.CharField(max_length=50)
-
-
-class DiplomaCertificateFile(models.Model):
-    bytes = models.TextField()
-    filename = models.CharField(max_length=255)
-    mimetype = models.CharField(max_length=50)
-
-
-class CVFile(models.Model):
-    bytes = models.TextField()
-    filename = models.CharField(max_length=255)
-    mimetype = models.CharField(max_length=50)

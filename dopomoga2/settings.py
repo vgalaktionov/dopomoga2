@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy as _
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     "django_countries",
     "localflavor",
     "djmoney",
+    "convenient_formsets",
     # project
     "candidates",
     "vacancies",
@@ -134,3 +137,10 @@ STATICFILES_DIRS = [BASE_DIR / "dopomoga2" / "static"]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 DEFAULT_FILE_STORAGE = "db_file_storage.storage.DatabaseFileStorage"
+
+LOCALE_PATHS = [BASE_DIR / "dopomoga2" / "locale"]
+LANGUAGES = (
+    ("en", _("English")),
+    ("uk", _("Ukrainian")),
+)
+LANGUAGE_CODE = "uk"

@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+
+  web:
+    image: ghcr.io/vgalaktionov/dopomoga:${VERSION}
+    restart: always
+    ports:
+      - 8000:8000
+      # - 80:80
+      # - 443:443
+    depends_on:
+      - minio
+      - postgres
+    build:
+      context: .
+    environment:
+      DEBUG: 'True'
+      POSTGRES_PASSWORD: dev
+      POSTGRES_USER: dopomoga
+      POSTGRES_DB: dopomoga
+      POSTGRES_HOST: postgres
+      PORT: '8000'
+      MINIO_SERVER_ACCESS_KEY: minio-access-key
+      MINIO_SERVER_SECRET_KEY: minio-secret-key
+    env_file:
+      - .env
+    volumes:
+      - ./:/dopomoga:delegated
+    command: bash -c "python manage.py migrate && python manage.py collectstatic --no-input && python manage.py runserver 0.0.0.0:8000"
+
+  minio:
+    image: 'bitnami/minio:latest'
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    environment:
+      MINIO_ROOT_USER: minio-root-user
+      MINIO_ROOT_PASSWORD: minio-root-password
+
+  postgres:
+    image: postgres:13-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: dev
+      POSTGRES_USER: dopomoga
+      POSTGRES_DB: dopomoga
+
+volumes:
+  db-data:

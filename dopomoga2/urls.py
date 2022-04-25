@@ -13,9 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from candidates.views import RegistrationView
 from django.contrib import admin
 from django.urls import include, path
 
 from dopomoga2.views import IndexView
 
-urlpatterns = [path("admin/", admin.site.urls), path("files/", include("db_file_storage.urls")), path("", IndexView.as_view())]
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("files/", include("db_file_storage.urls")),
+    path("registration-form", RegistrationView.as_view()),
+    path("", IndexView.as_view()),
+]

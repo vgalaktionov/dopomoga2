@@ -141,6 +141,8 @@ AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
 }
 AWS_STORAGE_BUCKET_NAME = "dopomoga"
+AWS_QUERYSTRING_AUTH = False
+AWS_LOCATION = "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -1,11 +1,19 @@
 <nav role="navigation">
 
-    <div class="logo"><a href="/">🇺🇦 &nbsp;|&nbsp; ДОПОМОГА</a></div>
-    <ul>
-        <li><a href="#who">Хто ми?</a></li>
-        <li><a href="#how">Як це працює?</a></li>
-        <li><a href="#contact">Контакти</a></li>
-    </ul>
-    <input type="button" class="nav-button" value="Заповнити анкету"
-        onclick="javascript:window.location='registration-form'">
+    <div class="container">
+        <div class="logo"><a href="/">🇺🇦 &nbsp;|&nbsp; ДОПОМОГА</a></div>
+        <details role="list" dir="rtl" class="contrast">
+            <summary aria-haspopup="listbox" role="link">Меню</summary>
+            <ul role="listbox" class="contrast">
+                <li class="contrast"><a href="#who">Хто ми?</a></li>
+                <li><a href="#how">Як це працює?</a></li>
+                <li><a href="#contact">Контакти?</a></li>
+                <li>
+                    <input type="button" class="nav-button" value="Заповнити анкету"
+                        onclick="javascript:window.location='registration-form'">
+                </li>
+            </ul>
+        </details>
+    </div>
+
 </nav>

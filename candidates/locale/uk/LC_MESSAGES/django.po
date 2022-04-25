@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-22 11:58+0000\n"
+"POT-Creation-Date: 2022-04-25 21:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,102 +21,140 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: candidates/models.py:16
+#: candidates/models.py:18
 msgid "Mr."
 msgstr "Пан"
 
-#: candidates/models.py:17
+#: candidates/models.py:19
 msgid "Ms."
 msgstr "Пані"
 
-#: candidates/models.py:20 candidates/models.py:28
+#: candidates/models.py:22
 msgid "Unmarried"
 msgstr "Неодружений"
 
-#: candidates/models.py:21 candidates/models.py:29
+#: candidates/models.py:23
 msgid "Married"
 msgstr "Одружений"
 
-#: candidates/models.py:22 candidates/models.py:30
+#: candidates/models.py:24
 msgid "Cohabitant"
 msgstr "Співмешканець"
 
-#: candidates/models.py:23 candidates/models.py:31
+#: candidates/models.py:25
 msgid "Divorced"
 msgstr "Розлучений"
 
-#: candidates/models.py:24 candidates/models.py:32
+#: candidates/models.py:26
 msgid "Widowed"
 msgstr "Овдовілий"
 
-#: candidates/models.py:25 candidates/models.py:33
+#: candidates/models.py:27
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: candidates/models.py:35
+#: candidates/models.py:30
+msgid "Beginner"
+msgstr "Початковий"
+
+#: candidates/models.py:31
+msgid "Conversational"
+msgstr "Розмовний"
+
+#: candidates/models.py:32
+msgid "Professional"
+msgstr "Професійний"
+
+#: candidates/models.py:33
+msgid "Fluent"
+msgstr "Вільний"
+
+#: candidates/models.py:34
+msgid "Native"
+msgstr "Рідний"
+
+#: candidates/models.py:36
+#, fuzzy
+#| msgid "Unknown"
+msgid "(Unknown)"
+msgstr "Невідомий"
+
+#: candidates/models.py:43
+msgid "Language"
+msgstr "Мова"
+
+#: candidates/models.py:44
+msgid "Level"
+msgstr "Рівень"
+
+#: candidates/models.py:58
 msgid "Title"
 msgstr "Гоноратив"
 
-#: candidates/models.py:36
+#: candidates/models.py:59
 msgid "First name"
 msgstr "Ім'я"
 
-#: candidates/models.py:38
+#: candidates/models.py:61
 msgid "Last name"
 msgstr "Прізвище"
 
-#: candidates/models.py:41
-msgid "Zipcode"
-msgstr "Поштовий індекс"
-
-#: candidates/models.py:42
-msgid "Street number"
-msgstr "Номер будинку"
-
-#: candidates/models.py:43
-msgid "Street"
-msgstr "Вулиця"
-
-#: candidates/models.py:44
-msgid "City"
-msgstr "Місто"
-
-#: candidates/models.py:45
-msgid "Country"
-msgstr "Країна"
-
-#: candidates/models.py:47
-msgid "Email"
-msgstr "Електронна пошта"
-
-#: candidates/models.py:48
-msgid "Phone number"
-msgstr "Номер телефону"
-
-#: candidates/models.py:59
+#: candidates/models.py:63
 msgid "Date of birth"
 msgstr "Дата народження"
 
 #: candidates/models.py:65
+msgid "Zipcode"
+msgstr "Поштовий індекс"
+
+#: candidates/models.py:66
+msgid "Street number"
+msgstr "Номер будинку"
+
+#: candidates/models.py:67
+msgid "Street"
+msgstr "Вулиця"
+
+#: candidates/models.py:68
+msgid "City"
+msgstr "Місто"
+
+#: candidates/models.py:69
+msgid "Country"
+msgstr "Країна"
+
+#: candidates/models.py:71
+msgid "Email"
+msgstr "Електронна пошта"
+
+#: candidates/models.py:72
+msgid "Phone number"
+msgstr "Номер телефону"
+
+#: candidates/models.py:75
+msgid "Languages"
+msgstr "Мови"
+
+#: candidates/models.py:76
+msgid "Drivers Licenses"
+msgstr ""
+
+#: candidates/models.py:80
+msgid "Work experience"
+msgstr ""
+
+#: candidates/models.py:81
+msgid "Work willing to consider"
+msgstr ""
+
+#: candidates/models.py:82
+msgid "Diplomas and certificates"
+msgstr ""
+
+#: candidates/models.py:83
+msgid "CV"
+msgstr ""
+
+#: candidates/models.py:90
 msgid "Marital status"
 msgstr "Сімейний стан"
-
-#: candidates/models.py:84
-msgid "Beginner"
-msgstr "Початковий"
-
-#: candidates/models.py:85
-msgid "Conversational"
-msgstr "Розмовний"
-
-#: candidates/models.py:86
-msgid "Professional"
-msgstr "Професійний"
-
-#: candidates/models.py:87
-msgid "Fluent"
-msgstr "Вільний"
-
-#: candidates/models.py:88
-msgid "Native"
-msgstr "Рідний"

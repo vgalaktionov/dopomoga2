@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.forms",
     # 3rd party
     "storages",
     "phonenumber_field",
@@ -82,6 +83,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "dopomoga2.wsgi.application"
+FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 
 # Database
@@ -140,9 +142,9 @@ LANGUAGE_CODE = "uk"
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = BASE_DIR / ".static"
 STATICFILES_DIRS = [BASE_DIR / "dopomoga2" / "static"]
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3StaticStorage"
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3StaticStorage" if not DEBUG else "django.contrib.staticfiles.storage.StaticFilesStorage"
 AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
 }

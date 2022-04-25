@@ -1,71 +1,18 @@
 {% extends 'base.html' %}
 {% block extrahead %}
-{{ languages_formset.media }}
-<script>
-    window.addEventListener('load', function (event) {
-        new ConvenientFormset({
-            'formsetPrefix': '{{ languages_formset.prefix }}',
-            'formsContainerSelector': '#languages-formset #languages-forms-container',
-            'formSelector': '.form-container',
-
-            'canAddForms': true,
-            'addFormButtonSelector': '#languages-formset #add-form-button',
-            'emptyFormSelector': '#languages-formset #empty-form .languages-form',
-
-            'canDeleteForms': true,
-            'deleteFormButtonSelector': '#delete-form-button',
-
-            'canOrderForms': false,
-            'moveFormDownButtonSelector': '#move-form-down-button',
-            'moveFormUpButtonSelector': '#move-form-up-button',
-        });
-    });
-</script>
+{{ form.media }}
 {% endblock extrahead %}
 
 {% block content %}
-<form class="form-container" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+<main class="container">
+    <form class="form-container" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
 
-    <h6>Languages</h6>
 
-    <div id="languages-formset">
-        <div id="languages-forms-container">
-            {% for languages_form in languages_formset.forms %}
-            <div class="languages-form">
-                {{ languages_form.as_p }}
-                {% if languages_formset.can_delete %}
-                {{ languages_form.DELETE }}
-                <input type="button" id="delete-form-button" value="Delete">
-                {% endif %}
-                {% if languages_formset.can_order %}
-                {{ languages_form.ORDER }}
-                <input type="button" id="move-form-up-button" value="Move up">
-                <input type="button" id="move-form-down-button" value="Move down">
-                {% endif %}
-            </div>
-            {% endfor %}
-        </div>
-        <div><input type="button" id="add-form-button" value="Add another"></div>
-        <div id="empty-form" hidden>
-            <div class="languages-form">
-                {{ languages_formset.empty_form.as_p }}
-                {% if languages_formset.can_delete %}
-                <input type="button" id="delete-form-button" value="Delete">
-                {% endif %}
-                {% if languages_formset.can_order %}
-                {{ languages_form.ORDER }}
-                <input type="button" id="move-form-up-button" value="Move up">
-                <input type="button" id="move-form-down-button" value="Move down">
-                {% endif %}
-            </div>
-        </div>
-        {{ languages_formset.management_form }}
-    </div>
-
-    <input type="submit" value="Надіслати запит">
-</form>
+        <input type="submit" value="Надіслати запит">
+    </form>
+</main>
 
 
 

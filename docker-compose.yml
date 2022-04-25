@@ -38,6 +38,7 @@ services:
     environment:
       MINIO_ROOT_USER: minio-root-user
       MINIO_ROOT_PASSWORD: minio-root-password
+      MINIO_DEFAULT_BUCKETS: dopomoga
     volumes:
       - minio-data:/data
 

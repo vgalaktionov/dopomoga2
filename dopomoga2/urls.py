@@ -14,13 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from candidates.views import RegistrationView
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import include, path
+from django.utils import timezone
+from django.views.decorators.http import last_modified
+from django.views.i18n import JavaScriptCatalog
 
 from dopomoga2.views import IndexView
 
+last_modified_date = timezone.now()
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    # path("jsi18n/", last_modified(lambda req, **kw: last_modified_date)(JavaScriptCatalog.as_view()), name="javascript-catalog"),
     path("registration-form", RegistrationView.as_view()),
     path("", IndexView.as_view()),
-]
+] + i18n_patterns(
+    path("jsi18n/", last_modified(lambda req, **kw: last_modified_date)(JavaScriptCatalog.as_view()), name="javascript-catalog"),
+)

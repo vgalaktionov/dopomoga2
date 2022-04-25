@@ -9,7 +9,7 @@ Built with:
 -   Django
 -   Postgres
 -   S3
--   GDCSS
+-   Pico.css
 
 ## Setup
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-22 11:58+0000\n"
+"POT-Creation-Date: 2022-04-25 21:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,13 +21,17 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: dopomoga2/settings.py:142
+#: dopomoga2/settings.py:135
 msgid "English"
 msgstr ""
 
-#: dopomoga2/settings.py:143
+#: dopomoga2/settings.py:136
 msgid "Ukrainian"
 msgstr ""
+
+#: dopomoga2/templates/base.html:30
+msgid "Add item"
+msgstr "Додати елемент"
 
 #: src/django-db-file-storage/db_file_storage/views.py:18
 #: venv/src/django-db-file-storage/db_file_storage/views.py:18

@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-a)89t$n(u0sr0u6l$1&azi)iyw-j!%9wfza@ni7z3af(9pi0@m")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get("DEBUG"))
 
 ALLOWED_HOSTS = ["localhost", "dopomoga.galaktic.tech"]
 

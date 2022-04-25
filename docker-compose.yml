@@ -7,7 +7,7 @@ services:
     restart: always
     ports:
       - 8000:8000
-      # - 80:80
+      - 80:80
       # - 443:443
     depends_on:
       - minio
@@ -23,6 +23,7 @@ services:
       PORT: '8000'
       AWS_S3_ACCESS_KEY_ID: minio-access-key
       AWS_S3_SECRET_ACCESS_KEY: minio-secret-key
+      AWS_S3_ENDPOINT_URL: http://minio:9000
     # env_file:
     #   - .env
     volumes:
@@ -37,6 +38,8 @@ services:
     environment:
       MINIO_ROOT_USER: minio-root-user
       MINIO_ROOT_PASSWORD: minio-root-password
+    volumes:
+      - minio-data:/data
 
   postgres:
     image: postgres:13-alpine
@@ -51,3 +54,4 @@ services:
 
 volumes:
   db-data:
+  minio-data:

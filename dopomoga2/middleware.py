@@ -10,6 +10,8 @@ def translate_middleware(get_response):
         # the view (and later middleware) are called.
         if not request.path.startswith("/admin"):
             translation.activate("uk")
+        else:
+            translation.deactivate_all()
 
         response = get_response(request)
 

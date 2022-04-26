@@ -12,7 +12,7 @@ class CustomManifestS3Boto3Storage(ManifestFilesMixin, S3Boto3Storage):
     # FIXME this seems to be a bug in ManifestFilesMixin with S3Boto3Storages
     # ManifestFilesMixin is expecting a FileNotFound error but
     # S3Boto3Storages is throwing an IOError
-    manifest_location = os.path.abspath(settings.BASE_DIR)
+    manifest_location = os.path.abspath(settings.STATIC_ROOT)
     manifest_storage = FileSystemStorage(location=manifest_location)
 
     def read_manifest(self):

@@ -14,6 +14,4 @@ ENV PYTHONUNBUFFERED=1
 
 RUN python manage.py makemessages -l uk && python manage.py compilemessages
 
-RUN python manage.py collectstatic --noinput
-
 CMD gunicorn --worker-tmp-dir /dev/shm dopomoga2.wsgi

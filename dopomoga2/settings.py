@@ -29,6 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-a)89t$n(u0sr0u6l$1&az
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ["localhost", "dopomoga.galaktic.tech"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost", "https://dopomoga.galaktic.tech"]
 
 
 # Application definition

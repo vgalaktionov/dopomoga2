@@ -144,7 +144,7 @@ LANGUAGE_CODE = "uk"
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / ".static"
 STATICFILES_DIRS = [BASE_DIR / "dopomoga2" / "static"]
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3StaticStorage" if not DEBUG else "django.contrib.staticfiles.storage.StaticFilesStorage"
+STATICFILES_STORAGE = "dopomoga2.storage.CustomManifestS3Boto3Storage" if not DEBUG else "django.contrib.staticfiles.storage.StaticFilesStorage"
 AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
 }

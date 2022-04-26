@@ -62,6 +62,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "dopomoga2.middleware.translate_middleware",
 ]
 
 ROOT_URLCONF = "dopomoga2.urls"
@@ -135,7 +136,7 @@ LANGUAGES = (
     ("en", _("English")),
     ("uk", _("Ukrainian")),
 )
-LANGUAGE_CODE = "uk"
+# LANGUAGE_CODE = "uk"
 
 
 # Static files (CSS, JavaScript, Images)

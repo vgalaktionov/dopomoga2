@@ -10,6 +10,7 @@ nav[role='navigation'] {
     width: 100vw;
     height: 70px;
     margin-bottom: 70px;
+    z-index: 10000;
 }
 
 nav summary,

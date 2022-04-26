@@ -1,0 +1,14 @@
+black
+boto3
+Django
+django-countries
+django-jsonform
+django-localflavor
+django-money
+django-phonenumber-field
+django-storages
+django-import-export
+flake8
+gunicorn
+phonenumbers
+psycopg2-binary

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "localflavor",
     "djmoney",
     "django_jsonform",
+    "import_export",
     # project
     "candidates",
     "vacancies",

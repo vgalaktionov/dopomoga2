@@ -70,29 +70,35 @@ class Candidate(models.Model):
 
     email = models.EmailField(max_length=200, verbose_name=_("Email"))
     phone_number = PhoneNumberField(verbose_name=_("Phone number"))
-    mobile_phone_number = PhoneNumberField()
+    mobile_phone_number = PhoneNumberField(blank=True, null=True)
 
     languages = JSONField(schema=LANGUAGES_SCHEMA, default=default_languages, verbose_name=_("Languages"))
     drivers_licenses = models.CharField(max_length=200, verbose_name=_("Drivers Licenses"), default="")
-    max_travel_one_way_minutes = models.PositiveSmallIntegerField(default=30)
-    has_own_bicycle = models.BooleanField(default=False)
-    has_own_car = models.BooleanField(default=False)
+    max_travel_one_way_minutes = models.PositiveSmallIntegerField(verbose_name=_("Maximum travel time to work (in minutes)"), default=30)
+    work_time_restrictions = models.TextField(verbose_name=_("Work time restrictions"), blank=True, null=True)
+    has_own_bicycle = models.BooleanField(verbose_name=_("Own bicycle"), default=False)
+    has_own_car = models.BooleanField(verbose_name=_("Own car"), default=False)
     work_experience = models.TextField(verbose_name=_("Work experience"), blank=True, null=True)
-    work_willing_to_consider = models.TextField(verbose_name=_("Work willing to consider"), blank=True, null=True)
+    work_willing_to_consider = models.TextField(verbose_name=_("Types of work you are willing to consider"), blank=True, null=True)
     diplomas_certificates = models.TextField(verbose_name=_("Diplomas and certificates"), blank=True, null=True)
     cv = models.FileField(verbose_name=_("CV"), blank=True, null=True)
 
-    place_of_birth = models.CharField(max_length=100)
-    country_of_birth = CountryField()
+    place_of_birth = models.CharField(verbose_name=_("Place of birth"), max_length=100)
+    country_of_birth = CountryField(verbose_name=_("Country of birth"))
 
-    bsn = models.CharField(max_length=9, validators=[RegexValidator(r"^\d*$")])
-    bsn_proof_file = models.FileField(blank=True, null=True)
-    marital_status = models.CharField(max_length=15, choices=MaritalStatus.choices, default=MaritalStatus.UNMARRIED, verbose_name=_("Marital status"))
+    bsn = models.CharField(verbose_name=_("BSN"), max_length=9, validators=[RegexValidator(r"^\d*$")], blank=True, null=True)
+    bsn_proof_file = models.FileField(verbose_name=_("BSN proof"), blank=True, null=True)
+    marital_status = models.CharField(
+        max_length=15, choices=MaritalStatus.choices, default=MaritalStatus.UNMARRIED, verbose_name=_("Marital status"), blank=True, null=True
+    )
 
-    iban = IBANField()
-    bic = BICField()
+    iban = IBANField(verbose_name=_("IBAN"), blank=True, null=True)
+    bic = BICField(verbose_name=_("SWIFT"), blank=True, null=True)
 
-    passport_number = models.CharField(max_length=20, blank=False, null=False)
-    passport_valid_to = models.DateField(blank=False, null=False)
-    passport_file = models.FileField(blank=True, null=True)
-    nationality = CountryField()
+    passport_number = models.CharField(verbose_name=_("Passport number"), max_length=20, blank=True, null=True)
+    passport_valid_to = models.DateField(verbose_name=_("Passport valid to"), blank=True, null=True)
+    passport_file = models.FileField(verbose_name=_("Passport scan"), blank=True, null=True)
+    nationality = CountryField(verbose_name=_("Nationality"), blank=True, null=True)
+
+    comments = models.TextField(verbose_name=_("Comments"), blank=True, null=True)
+    internal_comments = models.TextField(blank=True, null=True)

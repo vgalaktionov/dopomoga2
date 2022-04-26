@@ -29,8 +29,13 @@ class CandidateForm(forms.ModelForm):
             "cv",
             "work_experience",
             "work_willing_to_consider",
+            "work_time_restrictions",
             "languages",
-            "drivers_licenses",
             "diplomas_certificates",
+            "drivers_licenses",
+            "has_own_bicycle",
+            "has_own_car",
+            "max_travel_one_way_minutes",
+            "comments",
         ]
         widgets = {"date_of_birth": forms.DateInput(attrs={"type": "date"})}

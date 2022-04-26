@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<main class="container">
+    <br><br><br>
+    <h1>{% translate "Thank you for registering!" %}</h1>
+    <p>
+        {% blocktranslate %}
+        We will contact you if we need more information or when we have found suitable job opportunities for you, using
+        the contact details you have provided.
+        {% endblocktranslate %}
+    </p>
+    <a href="/">{% translate "Back to main page" %}</a>
+</main>
+{% endblock content %}

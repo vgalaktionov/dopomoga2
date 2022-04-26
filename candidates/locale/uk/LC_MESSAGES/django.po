@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-25 21:31+0000\n"
+"POT-Creation-Date: 2022-04-26 15:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,24 +137,108 @@ msgstr "Мови"
 
 #: candidates/models.py:76
 msgid "Drivers Licenses"
-msgstr ""
+msgstr "Водійські права"
+
+#: candidates/models.py:77
+msgid "Maximum travel time to work (in minutes)"
+msgstr "Максимальний час у дорозі до роботи (у хвилинах)"
+
+#: candidates/models.py:78
+msgid "Work time restrictions"
+msgstr "Обмеження робочого часу"
+
+#: candidates/models.py:79
+msgid "Own bicycle"
+msgstr "Власний велосипед"
 
 #: candidates/models.py:80
-msgid "Work experience"
-msgstr ""
+msgid "Own car"
+msgstr "Власний автомобіль"
 
 #: candidates/models.py:81
-msgid "Work willing to consider"
-msgstr ""
+msgid "Work experience"
+msgstr "Досвід роботи"
 
 #: candidates/models.py:82
-msgid "Diplomas and certificates"
-msgstr ""
+msgid "Types of work you are willing to consider"
+msgstr "Види робіт, які ви готові розглянути"
 
 #: candidates/models.py:83
+msgid "Diplomas and certificates"
+msgstr "Дипломи та сертифікати"
+
+#: candidates/models.py:84
 msgid "CV"
-msgstr ""
+msgstr "Резюме"
+
+#: candidates/models.py:86
+#, fuzzy
+#| msgid "Date of birth"
+msgid "Place of birth"
+msgstr "Дата народження"
+
+#: candidates/models.py:87
+#, fuzzy
+#| msgid "Date of birth"
+msgid "Country of birth"
+msgstr "Країна народження"
+
+#: candidates/models.py:89
+msgid "BSN"
+msgstr "BSN"
 
 #: candidates/models.py:90
+msgid "BSN proof"
+msgstr "Доказ BSN"
+
+#: candidates/models.py:92
 msgid "Marital status"
 msgstr "Сімейний стан"
+
+#: candidates/models.py:95
+msgid "IBAN"
+msgstr "IBAN"
+
+#: candidates/models.py:96
+msgid "SWIFT"
+msgstr "SWIFT"
+
+#: candidates/models.py:98
+#, fuzzy
+#| msgid "Phone number"
+msgid "Passport number"
+msgstr "Номер паспорта"
+
+#: candidates/models.py:99
+msgid "Passport valid to"
+msgstr "Паспорт дійсний до"
+
+#: candidates/models.py:100
+msgid "Passport scan"
+msgstr "Скан паспорта"
+
+#: candidates/models.py:101
+msgid "Nationality"
+msgstr "Громадянство"
+
+#: candidates/models.py:103
+msgid "Comments"
+msgstr "Коментарі"
+
+#: candidates/templates/candidates/registration_thanks.html:5
+msgid "Thank you for registering!"
+msgstr "Дякуємо за реєстрацію!"
+
+#: candidates/templates/candidates/registration_thanks.html:7
+msgid ""
+"\n"
+"        We will contact you if we need more information or when we have "
+"found suitable job opportunities for you, using\n"
+"        the contact details you have provided.\n"
+"        "
+msgstr "\n"
+"Ми зв'яжемося з вами, якщо нам знадобиться додаткова інформація або коли знайдемо для вас підходящу роботу, використовуючи надану вами контактну інформацію."
+
+#: candidates/templates/candidates/registration_thanks.html:12
+msgid "Back to main page"
+msgstr "🏠 Повернутися на головну сторінку"

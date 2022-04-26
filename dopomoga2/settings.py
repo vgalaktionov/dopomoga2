@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-a)89t$n(u0sr0u6l$1&azi)iyw-j!%9wfza@ni7z3af(9pi0@m")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get("DEBUG"))
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ["localhost", "dopomoga.galaktic.tech"]
 
@@ -141,18 +141,19 @@ LANGUAGE_CODE = "uk"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / ".static"
 STATICFILES_DIRS = [BASE_DIR / "dopomoga2" / "static"]
-STATICFILES_STORAGE = "dopomoga2.storage.CustomManifestS3Boto3Storage" if not DEBUG else "django.contrib.staticfiles.storage.StaticFilesStorage"
+STATICFILES_STORAGE = "dopomoga2.storage.CustomManifestS3Boto3Storage"
 AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
 }
 AWS_DEFAULT_ACL = "public-read"
 AWS_S3_ENDPOINT_URL = os.environ.get("AWS_S3_ENDPOINT_URL", "https://ams3.digitaloceanspaces.com")
-AWS_S3_CUSTOM_DOMAIN = "cdn.galaktic.tech"
+AWS_S3_CUSTOM_DOMAIN = os.environ.get("AWS_S3_CUSTOM_DOMAIN", "cdn.galaktic.tech")
 AWS_S3_REGION_NAME = "ams3"
+AWS_S3_SECURE_URLS = False
 AWS_STORAGE_BUCKET_NAME = "dopomoga"
+STATIC_URL = "static/"
 AWS_QUERYSTRING_AUTH = False
 AWS_LOCATION = "static"
 

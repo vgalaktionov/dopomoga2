@@ -16,8 +16,16 @@ botocore==1.25.0
     # via
     #   boto3
     #   s3transfer
+certifi==2021.10.8
+    # via requests
+charset-normalizer==2.0.12
+    # via requests
 click==8.1.2
-    # via black
+    # via
+    #   black
+    #   geocoder
+decorator==5.1.1
+    # via ratelim
 defusedxml==0.7.1
     # via odfpy
 diff-match-patch==20200713
@@ -25,12 +33,16 @@ diff-match-patch==20200713
 django==4.0.4
     # via
     #   -r requirements.in
+    #   django-admin-numeric-filter
     #   django-import-export
     #   django-jsonform
     #   django-localflavor
     #   django-money
+    #   django-more-admin-filters
     #   django-phonenumber-field
     #   django-storages
+django-admin-numeric-filter @ git+https://github.com/vgalaktionov/django-admin-numeric-filter@master
+    # via -r requirements.in
 django-countries==7.3.2
     # via -r requirements.in
 django-import-export==2.8.0
@@ -41,6 +53,8 @@ django-localflavor==3.1
     # via -r requirements.in
 django-money==2.1.1
     # via -r requirements.in
+django-more-admin-filters @ git+https://github.com/vgalaktionov/django-more-admin-filters@master
+    # via -r requirements.in
 django-phonenumber-field==6.1.0
     # via -r requirements.in
 django-storages==1.12.3
@@ -49,8 +63,14 @@ et-xmlfile==1.1.0
     # via openpyxl
 flake8==4.0.1
     # via -r requirements.in
+future==0.18.2
+    # via geocoder
+geocoder==1.38.1
+    # via -r requirements.in
 gunicorn==20.1.0
     # via -r requirements.in
+idna==3.3
+    # via requests
 jmespath==1.0.0
     # via
     #   boto3
@@ -87,22 +107,33 @@ pytz==2022.1
     # via babel
 pyyaml==6.0
     # via tablib
+ratelim==0.1.6
+    # via geocoder
+requests==2.27.1
+    # via geocoder
 s3transfer==0.5.2
     # via boto3
 six==1.16.0
-    # via python-dateutil
+    # via
+    #   geocoder
+    #   python-dateutil
+    #   transliterate
 sqlparse==0.4.2
     # via django
 tablib[html,ods,xls,xlsx,yaml]==3.2.1
     # via django-import-export
 tomli==2.0.1
     # via black
+transliterate==1.10.2
+    # via -r requirements.in
 typing-extensions==4.2.0
     # via
     #   black
     #   django-countries
 urllib3==1.26.9
-    # via botocore
+    # via
+    #   botocore
+    #   requests
 xlrd==2.0.1
     # via tablib
 xlwt==1.3.0

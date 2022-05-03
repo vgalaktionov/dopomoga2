@@ -44,7 +44,7 @@ services:
       - minio-data:/data
 
   postgres:
-    image: postgres:13-alpine
+    image: postgis/postgis:13-3.2-alpine
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:

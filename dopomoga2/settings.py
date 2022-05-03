@@ -36,9 +36,12 @@ CSRF_TRUSTED_ORIGINS = ["http://localhost", "https://dopomoga.galaktic.tech"]
 
 INSTALLED_APPS = [
     # Django
+    "admin_numeric_filter",
+    "more_admin_filters",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
+    "django.contrib.gis",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
@@ -64,6 +67,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "dopomoga2.middleware.translate_middleware",
 ]
 
@@ -94,7 +98,7 @@ FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.contrib.gis.db.backends.postgis",
         "HOST": os.environ.get("POSTGRES_HOST", "postgres"),
         "PORT": int(os.environ.get("POSTGRES_PORT", 5432)),
         "USER": os.environ.get("POSTGRES_USER", "postgres"),

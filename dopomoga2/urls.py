@@ -25,6 +25,10 @@ from dopomoga2.views import IndexView
 
 last_modified_date = timezone.now()
 
+admin.site.site_header = "Dopomoga Admin"
+admin.site.site_title = "Dopomoga Admin Portal"
+admin.site.index_title = "Welcome to Dopomoga Admin Portal"
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),

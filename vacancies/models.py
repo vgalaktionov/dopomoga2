@@ -1,16 +1,22 @@
+from tabnanny import verbose
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from djmoney.models.fields import MoneyField
+from dopomoga2.models import TimestampedModel
 from localflavor.nl.models import NLZipCodeField
 from phonenumber_field.modelfields import PhoneNumberField
 
 
-class Company(models.Model):
+class Company(TimestampedModel):
     name = models.CharField(max_length=200, blank=False, null=False)
 
+    class Meta:
+        verbose_name_plural = "Companies"
 
-class CompanyLocation(models.Model):
+
+class CompanyLocation(TimestampedModel):
     company = models.ForeignKey("vacancies.Company", blank=False, null=False, on_delete=models.CASCADE)
 
     zipcode = NLZipCodeField()
@@ -19,11 +25,14 @@ class CompanyLocation(models.Model):
     city = models.CharField(max_length=200)
     country = CountryField(default="NL")
 
+    class Meta:
+        verbose_name_plural = "Company Locations"
+
     def __str__(self) -> str:
         return f"{self.company.name} - {self.city} ({self.street})"
 
 
-class Vacancy(models.Model):
+class Vacancy(TimestampedModel):
     title = models.CharField(max_length=200, blank=False, null=False)
     spots_available = models.PositiveSmallIntegerField(default=1)
     spots_filled = models.PositiveSmallIntegerField(default=0)
@@ -45,6 +54,9 @@ class Vacancy(models.Model):
     cao = models.CharField(max_length=200, blank=False, null=False)
     factor = models.CharField(max_length=200, blank=False, null=False)
     comments = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "Vacancies"
 
     @property
     def company(self):

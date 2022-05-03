@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from django_jsonform.models.fields import JSONField
+from dopomoga2.models import TimestampedModel
 from localflavor.generic.models import BICField, IBANField
 from localflavor.nl.models import NLZipCodeField
 from phonenumber_field.modelfields import PhoneNumberField
@@ -13,7 +14,7 @@ def default_languages():
     return [{"language": "uk", "level": 4}]
 
 
-class Candidate(models.Model):
+class Candidate(TimestampedModel):
     class Title(models.TextChoices):
         MR = "MR", _("Mr.")
         MS = "MS", _("Ms.")
@@ -102,3 +103,6 @@ class Candidate(models.Model):
 
     comments = models.TextField(verbose_name=_("Comments"), blank=True, null=True)
     internal_comments = models.TextField(blank=True, null=True)
+
+    def __str__(self) -> str:
+        return f"{self.get_title_display()} {self.first_name} {self.last_name}"

@@ -170,7 +170,7 @@ class CandidateResource(resources.ModelResource):
     patronymic = Field(attribute="patronymic", column_name="Patronymic")
     last_name = Field(attribute="last_name", column_name="Last name")
     name_cyrillic = Field(attribute="name_cyrillic", column_name="Name (cyrillic)")
-    # cv = FileFetchField(attribute="cv", column_name="File Cv")
+    cv = FileFetchField(attribute="cv", column_name="File Cv")
     original_data = Field(attribute="original_data", column_name="original")
     languages = Field(attribute="languages", column_name="Languages")
 

@@ -11,7 +11,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 def default_languages():
-    return [{"language": "uk", "level": 4}]
+    return [{"language": "uk", "level": 3}]
 
 
 class Candidate(TimestampedModel):
@@ -32,7 +32,6 @@ class Candidate(TimestampedModel):
         CONVERSATIONAL = 1, _("Conversational")
         PROFESSIONAL = 2, _("Professional")
         FLUENT = 3, _("Fluent")
-        NATIVE = 4, _("Native")
 
         __empty__ = _("(Unknown)")
 
@@ -58,9 +57,9 @@ class Candidate(TimestampedModel):
 
     title = models.CharField(max_length=10, choices=Title.choices, default=Title.MS, verbose_name=_("Title"))
     first_name = models.CharField(max_length=100, verbose_name=_("First name"))
-    preposition = models.CharField(max_length=20)
+    patronymic = models.CharField(max_length=100, verbose_name=_("Patronymic"), blank=True, null=True)
     last_name = models.CharField(max_length=100, verbose_name=_("Last name"))
-    initials = models.CharField(max_length=20)
+    name_cyrillic = models.CharField(max_length=300, verbose_name=_("Name (cyrillic)"), blank=True, null=True)
     date_of_birth = models.DateField(verbose_name=_("Date of birth"))
 
     zipcode = NLZipCodeField(verbose_name=_("Zipcode"))
@@ -71,7 +70,6 @@ class Candidate(TimestampedModel):
 
     email = models.EmailField(max_length=200, verbose_name=_("Email"))
     phone_number = PhoneNumberField(verbose_name=_("Phone number"))
-    mobile_phone_number = PhoneNumberField(blank=True, null=True)
 
     languages = JSONField(schema=LANGUAGES_SCHEMA, default=default_languages, verbose_name=_("Languages"))
     drivers_licenses = models.CharField(max_length=200, verbose_name=_("Drivers Licenses"), default="")
@@ -104,5 +102,10 @@ class Candidate(TimestampedModel):
     comments = models.TextField(verbose_name=_("Comments"), blank=True, null=True)
     internal_comments = models.TextField(blank=True, null=True)
 
+    is_imported = models.BooleanField(default=False)
+    original_data = models.JSONField(default=dict)
+
     def __str__(self) -> str:
+        if not self.first_name and not self.last_name:
+            return f"{self.get_title_display()} {self.first_name}"
         return f"{self.get_title_display()} {self.first_name} {self.last_name}"

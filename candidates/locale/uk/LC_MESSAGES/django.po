@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-26 15:14+0000\n"
+"POT-Creation-Date: 2022-05-04 13:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,57 +21,131 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: candidates/models.py:18
+#: candidates/admin.py:24
+#, fuzzy
+#| msgid "Drivers Licenses"
+msgid "Drivers License"
+msgstr "Водійські права"
+
+#: candidates/admin.py:38
+msgid "A"
+msgstr ""
+
+#: candidates/admin.py:39
+msgid "AM"
+msgstr ""
+
+#: candidates/admin.py:40
+msgid "B"
+msgstr ""
+
+#: candidates/admin.py:41
+msgid "BE"
+msgstr ""
+
+#: candidates/admin.py:42
+#, fuzzy
+#| msgid "CV"
+msgid "C"
+msgstr "Резюме"
+
+#: candidates/admin.py:43
+msgid "CE"
+msgstr ""
+
+#: candidates/admin.py:44
+msgid "D"
+msgstr ""
+
+#: candidates/admin.py:45
+msgid "T"
+msgstr ""
+
+#: candidates/admin.py:64
+msgid "Age Group"
+msgstr ""
+
+#: candidates/admin.py:78
+msgid "0 - 18"
+msgstr ""
+
+#: candidates/admin.py:79
+msgid "18 - 25"
+msgstr ""
+
+#: candidates/admin.py:80
+msgid "25 - 35"
+msgstr ""
+
+#: candidates/admin.py:81
+msgid "35 - 45"
+msgstr ""
+
+#: candidates/admin.py:82
+msgid "45 - 55"
+msgstr ""
+
+#: candidates/admin.py:83
+msgid "55 - 65"
+msgstr ""
+
+#: candidates/admin.py:84
+msgid "65+"
+msgstr ""
+
+#: candidates/admin.py:279
+#, fuzzy
+#| msgid "Drivers Licenses"
+msgid "Drivers licenses"
+msgstr "Водійські права"
+
+#: candidates/models.py:19
 msgid "Mr."
 msgstr "Пан"
 
-#: candidates/models.py:19
+#: candidates/models.py:20
 msgid "Ms."
 msgstr "Пані"
 
-#: candidates/models.py:22
+#: candidates/models.py:23
 msgid "Unmarried"
 msgstr "Неодружений"
 
-#: candidates/models.py:23
+#: candidates/models.py:24
 msgid "Married"
 msgstr "Одружений"
 
-#: candidates/models.py:24
+#: candidates/models.py:25
 msgid "Cohabitant"
 msgstr "Співмешканець"
 
-#: candidates/models.py:25
+#: candidates/models.py:26
 msgid "Divorced"
 msgstr "Розлучений"
 
-#: candidates/models.py:26
+#: candidates/models.py:27
 msgid "Widowed"
 msgstr "Овдовілий"
 
-#: candidates/models.py:27
+#: candidates/models.py:28
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: candidates/models.py:30
+#: candidates/models.py:31
 msgid "Beginner"
 msgstr "Початковий"
 
-#: candidates/models.py:31
+#: candidates/models.py:32
 msgid "Conversational"
 msgstr "Розмовний"
 
-#: candidates/models.py:32
+#: candidates/models.py:33
 msgid "Professional"
 msgstr "Професійний"
 
-#: candidates/models.py:33
+#: candidates/models.py:34
 msgid "Fluent"
 msgstr "Вільний"
-
-#: candidates/models.py:34
-msgid "Native"
-msgstr "Рідний"
 
 #: candidates/models.py:36
 #, fuzzy
@@ -95,9 +169,17 @@ msgstr "Гоноратив"
 msgid "First name"
 msgstr "Ім'я"
 
+#: candidates/models.py:60
+msgid "Patronymic"
+msgstr "По батькові"
+
 #: candidates/models.py:61
 msgid "Last name"
 msgstr "Прізвище"
+
+#: candidates/models.py:62
+msgid "Name (cyrillic)"
+msgstr "Ім'я (кирилиця)"
 
 #: candidates/models.py:63
 msgid "Date of birth"
@@ -131,114 +213,120 @@ msgstr "Електронна пошта"
 msgid "Phone number"
 msgstr "Номер телефону"
 
-#: candidates/models.py:75
+#: candidates/models.py:74
 msgid "Languages"
 msgstr "Мови"
 
-#: candidates/models.py:76
+#: candidates/models.py:75
 msgid "Drivers Licenses"
 msgstr "Водійські права"
 
-#: candidates/models.py:77
+#: candidates/models.py:76
 msgid "Maximum travel time to work (in minutes)"
 msgstr "Максимальний час у дорозі до роботи (у хвилинах)"
 
-#: candidates/models.py:78
+#: candidates/models.py:77
 msgid "Work time restrictions"
 msgstr "Обмеження робочого часу"
 
-#: candidates/models.py:79
+#: candidates/models.py:78
 msgid "Own bicycle"
 msgstr "Власний велосипед"
 
-#: candidates/models.py:80
+#: candidates/models.py:79
 msgid "Own car"
 msgstr "Власний автомобіль"
 
-#: candidates/models.py:81
+#: candidates/models.py:80
 msgid "Work experience"
 msgstr "Досвід роботи"
 
-#: candidates/models.py:82
+#: candidates/models.py:81
 msgid "Types of work you are willing to consider"
 msgstr "Види робіт, які ви готові розглянути"
 
-#: candidates/models.py:83
+#: candidates/models.py:82
 msgid "Diplomas and certificates"
 msgstr "Дипломи та сертифікати"
 
-#: candidates/models.py:84
+#: candidates/models.py:83
 msgid "CV"
 msgstr "Резюме"
 
-#: candidates/models.py:86
+#: candidates/models.py:85
 #, fuzzy
 #| msgid "Date of birth"
 msgid "Place of birth"
 msgstr "Дата народження"
 
-#: candidates/models.py:87
+#: candidates/models.py:86
 #, fuzzy
 #| msgid "Date of birth"
 msgid "Country of birth"
 msgstr "Країна народження"
 
-#: candidates/models.py:89
+#: candidates/models.py:88
 msgid "BSN"
 msgstr "BSN"
 
-#: candidates/models.py:90
+#: candidates/models.py:89
 msgid "BSN proof"
 msgstr "Доказ BSN"
 
-#: candidates/models.py:92
+#: candidates/models.py:91
 msgid "Marital status"
 msgstr "Сімейний стан"
 
-#: candidates/models.py:95
+#: candidates/models.py:94
 msgid "IBAN"
 msgstr "IBAN"
 
-#: candidates/models.py:96
+#: candidates/models.py:95
 msgid "SWIFT"
 msgstr "SWIFT"
 
-#: candidates/models.py:98
+#: candidates/models.py:97
 #, fuzzy
 #| msgid "Phone number"
 msgid "Passport number"
 msgstr "Номер паспорта"
 
-#: candidates/models.py:99
+#: candidates/models.py:98
 msgid "Passport valid to"
 msgstr "Паспорт дійсний до"
 
-#: candidates/models.py:100
+#: candidates/models.py:99
 msgid "Passport scan"
 msgstr "Скан паспорта"
 
-#: candidates/models.py:101
+#: candidates/models.py:100
 msgid "Nationality"
 msgstr "Громадянство"
 
-#: candidates/models.py:103
+#: candidates/models.py:102
 msgid "Comments"
 msgstr "Коментарі"
 
-#: candidates/templates/candidates/registration_thanks.html:5
+#: candidates/templates/candidates/registration_thanks.html:7
 msgid "Thank you for registering!"
 msgstr "Дякуємо за реєстрацію!"
 
-#: candidates/templates/candidates/registration_thanks.html:7
+#: candidates/templates/candidates/registration_thanks.html:9
 msgid ""
 "\n"
 "        We will contact you if we need more information or when we have "
 "found suitable job opportunities for you, using\n"
 "        the contact details you have provided.\n"
 "        "
-msgstr "\n"
-"Ми зв'яжемося з вами, якщо нам знадобиться додаткова інформація або коли знайдемо для вас підходящу роботу, використовуючи надану вами контактну інформацію."
+msgstr ""
+"\n"
+"Ми зв'яжемося з вами, якщо нам знадобиться додаткова інформація або коли "
+"знайдемо для вас підходящу роботу, використовуючи надану вами контактну "
+"інформацію."
 
-#: candidates/templates/candidates/registration_thanks.html:12
+#: candidates/templates/candidates/registration_thanks.html:14
 msgid "Back to main page"
 msgstr "🏠 Повернутися на головну сторінку"
+
+#~ msgid "Native"
+#~ msgstr "Рідний"

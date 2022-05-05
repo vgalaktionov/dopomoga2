@@ -263,7 +263,19 @@ class CandidateResource(resources.ModelResource):
 @admin.register(Candidate)
 class CandidateAdmin(NumericFilterModelAdmin, ImportExportModelAdmin):
     resource_class = CandidateResource
-    list_display = ("__str__", "date_of_birth", "age", "zipcode", "city", "email", "phone_number", "has_own_bicycle", "has_own_car", "get_drivers_licenses")
+    list_display = (
+        "__str__",
+        "name_cyrillic",
+        "date_of_birth",
+        "age",
+        "zipcode",
+        "city",
+        "email",
+        "phone_number",
+        "has_own_bicycle",
+        "has_own_car",
+        "get_drivers_licenses",
+    )
     list_filter = (
         AgeGroupListFilter,
         "has_own_bicycle",
@@ -271,7 +283,7 @@ class CandidateAdmin(NumericFilterModelAdmin, ImportExportModelAdmin):
         ("max_travel_one_way_minutes", RangeNumericFilter),
         DriversLicenseFilter,
     )
-    search_fields = ("first_name", "last_name", "zipcode", "city", "email", "phone_number", "max_travel_one_way_minutes")
+    search_fields = ("first_name", "last_name", "patronymic", "name_cyrillic", "zipcode", "city", "email", "phone_number", "max_travel_one_way_minutes")
 
     def get_drivers_licenses(self, obj):
         return json.loads(obj.drivers_licenses.replace("'", '"'))

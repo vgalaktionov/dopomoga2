@@ -14,4 +14,4 @@ COPY . .
 
 RUN python manage.py makemessages -l uk && python manage.py compilemessages
 
-CMD python manage.py collectstatic --noinput && python manage.py migrate && gunicorn --worker-tmp-dir /dev/shm dopomoga2.wsgi
+CMD python manage.py collectstatic --noinput && python manage.py migrate && gunicorn --timeout 86400 --worker-tmp-dir /dev/shm dopomoga2.wsgi
